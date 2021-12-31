@@ -1,0 +1,29 @@
+﻿<Window x:Class="MobileShopping.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Danh sách sản phẩm" Height="546" Width="771.125"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Margin="10,41,10,50" Name="lvProduct" ItemsSource="{Binding ProductList}" 
+                  MouseDoubleClick="lvProduct_MouseDoubleClick" SelectionChanged="LvProduct_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Sản phấm" Width="350" DisplayMemberBinding="{Binding ProductName}" />
+                    <GridViewColumn Header="Giá" Width="100" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Hình ảnh" Width="300"  >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Thumbnail}" Width="120px" Height="70px" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Height="23" HorizontalAlignment="Left" Margin="10,0,0,18" Name="btnCrawl" 
+                VerticalAlignment="Bottom" Width="114" Click="btnCrawl_Click">Crawl Data</Button>
+    </Grid>
+</Window>

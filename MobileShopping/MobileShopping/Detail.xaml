@@ -1,0 +1,52 @@
+﻿<Window x:Class="MobileShopping.Detail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thông tin chi tiết sản phẩm" Height="600" Width="850">
+    <Grid Margin="0,0,12,0">
+        <TextBlock Height="43" Margin="40,20,10,0" x:Name="txtTitle" Text="Thông tin sản phẩm" 
+                   VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20" TextAlignment="Center" />
+        <ListView x:Name="lvSlides" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                  Margin="375,94,0,0" Height="272" SelectionChanged="LvSlides_SelectionChanged" FontWeight="Thin">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4" HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Image Source="{Binding}" HorizontalAlignment="Stretch"
+                               VerticalAlignment="Top" Stretch="UniformToFill" Width="90px" Height="90px" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="325,-48,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tên điện thoại :" HorizontalAlignment="Left" Margin="-5,87,0,0"
+               VerticalAlignment="Top" Width="125" Height="43" FontFamily="Segoe UI Black" FontSize="16"/>
+        <TextBlock x:Name="txtPrice" HorizontalAlignment="Left" TextWrapping="Wrap" Text="giá sản phẩm " 
+                   VerticalAlignment="Top" Margin="125,158,0,0" Width="187" Height="41" FontSize="14"/>
+        <TextBlock x:Name="txtName" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Text="tên sản phẩm" 
+                   VerticalAlignment="Top" Margin="125,94,0,0" Width="219" Height="67" FontSize="14"/>
+        <Label Content="Giá" HorizontalAlignment="Left" Margin="-5,149,0,0"
+               VerticalAlignment="Top" Width="53" Height="43" FontFamily="Segoe UI Black" FontSize="18"/>
+        <Label Content="Cấu hình chi tiết" HorizontalAlignment="Left" Margin="11,337,0,0" 
+               VerticalAlignment="Top" Width="215" Height="54" FontFamily="Segoe UI Black" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        </Label>
+        <TextBlock x:Name="txtBH" HorizontalAlignment="Right" TextWrapping="WrapWithOverflow" 
+                   Text="Thông tin bảo hành" VerticalAlignment="Top" Margin="0,221,485,0" Width="220" Height="80" FontSize="14"/>
+        <Label Content="Bảo hành:" HorizontalAlignment="Left" Margin="-5,212,0,0" VerticalAlignment="Top" 
+               Width="93" Height="48" FontFamily="Segoe UI Black" FontSize="18" RenderTransformOrigin="0.591,1.07"/>
+        <!--ItemsSource="{Binding Spec}"-->
+        <ListView  x:Name="lvSpec3" HorizontalAlignment="Left" Margin="10,371,0,10" Width="820" 
+                   SelectionChanged="LvSpec3_SelectionChanged" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  x:Name="lvSpec4" DisplayMemberBinding="{Binding }"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Hình ảnh chi tiết sản phẩm" HorizontalAlignment="Left" Margin="521,59,0,0"
+               VerticalAlignment="Top" Width="290" Height="43" FontFamily="Segoe UI Black" FontSize="22"/>
+    </Grid>
+</Window>
